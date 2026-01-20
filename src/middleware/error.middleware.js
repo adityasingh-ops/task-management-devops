@@ -1,4 +1,4 @@
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res) => {
   // Only log errors in development, suppress in test
   if (process.env.NODE_ENV !== 'test') {
     console.error('Error:', err);

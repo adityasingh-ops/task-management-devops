@@ -6,7 +6,9 @@ const tasks = new Map();
 
 const createTask = async (req, res, next) => {
   try {
-    const { title, description, priority, dueDate } = req.body;
+    const {
+      title, description, priority, dueDate,
+    } = req.body;
     const taskId = uuidv4();
 
     const task = {

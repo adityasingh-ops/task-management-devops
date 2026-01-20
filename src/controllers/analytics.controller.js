@@ -1,5 +1,18 @@
 const { tasks } = require('./task.controller');
 
+// Helper function to calculate average priority
+const calculateAveragePriority = (taskList) => {
+  if (taskList.length === 0) return 'N/A';
+
+  const priorityMap = { low: 1, medium: 2, high: 3 };
+  const sum = taskList.reduce((acc, task) => acc + (priorityMap[task.priority] || 2), 0);
+  const avg = sum / taskList.length;
+
+  if (avg <= 1.5) return 'Low';
+  if (avg <= 2.5) return 'Medium';
+  return 'High';
+};
+
 const getTaskStatistics = async (req, res, next) => {
   try {
     const userTasks = Array.from(tasks.values()).filter(
@@ -63,18 +76,6 @@ const getTaskTrends = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
-
-const calculateAveragePriority = (tasks) => {
-  if (tasks.length === 0) return 'N/A';
-
-  const priorityMap = { low: 1, medium: 2, high: 3 };
-  const sum = tasks.reduce((acc, task) => acc + (priorityMap[task.priority] || 2), 0);
-  const avg = sum / tasks.length;
-
-  if (avg <= 1.5) return 'Low';
-  if (avg <= 2.5) return 'Medium';
-  return 'High';
 };
 
 module.exports = {
