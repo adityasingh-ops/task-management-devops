@@ -1,7 +1,7 @@
 # 🚀 Task Management API - Advanced DevOps CI/CD Project
 
-[![CI Pipeline](https://github.com/yourusername/DevOpsTerm9/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/DevOpsTerm9/actions/workflows/ci.yml)
-[![CD Pipeline](https://github.com/yourusername/DevOpsTerm9/actions/workflows/cd.yml/badge.svg)](https://github.com/yourusername/DevOpsTerm9/actions/workflows/cd.yml)
+[![CI Pipeline](https://github.com/adityasingh-ops/task-management-devops/actions/workflows/ci.yml/badge.svg)](https://github.com/adityasingh-ops/task-management-devops/actions/workflows/ci.yml)
+[![CD Pipeline](https://github.com/adityasingh-ops/task-management-devops/actions/workflows/cd.yml/badge.svg)](https://github.com/adityasingh-ops/task-management-devops/actions/workflows/cd.yml)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
