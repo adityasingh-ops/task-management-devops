@@ -1,0 +1,9 @@
+# OWASP ZAP Rules Configuration
+# Ignore certain test IDs or adjust risk levels
+
+# Format: <test-id> <action> <description>
+# Actions: IGNORE, FAIL, WARN
+
+# Example rules (customize based on your needs)
+# 10021	IGNORE	X-Content-Type-Options Header Missing
+# 10038	IGNORE	Content Security Policy (CSP) Header Not Set

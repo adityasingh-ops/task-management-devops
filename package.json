@@ -1,0 +1,52 @@
+{
+  "name": "task-management-api",
+  "version": "1.0.0",
+  "description": "Advanced DevOps CI/CD Project - Task Management API with Authentication",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --coverage --verbose",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "security:check": "npm audit",
+    "docker:build": "docker build -t task-management-api .",
+    "docker:run": "docker run -p 3000:3000 task-management-api"
+  },
+  "keywords": [
+    "devops",
+    "cicd",
+    "kubernetes",
+    "docker",
+    "nodejs",
+    "express",
+    "api"
+  ],
+  "author": "DevOps Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.1",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-security": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

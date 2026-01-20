@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Tests and development
+tests
+coverage
+*.test.js
+jest.config.js
+.eslintrc.json
+
+# Git
+.git
+.gitignore
+.github
+
+# Documentation
+README.md
+*.md
+!LICENSE.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Kubernetes configs
+k8s/
+kubernetes/
+
+# CI/CD
+.github/
+
+# Logs
+logs
+*.log
