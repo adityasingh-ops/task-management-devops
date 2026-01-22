@@ -63,10 +63,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
+      
+      - name: Connect to EKS cluster
+        run: |
+          aws eks update-kubeconfig \
+            --region us-east-1 \
+            --name task-mgmt
           
       # Note: In production, configure actual kubeconfig
       # This is a demonstration of the deployment process

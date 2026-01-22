@@ -421,7 +421,9 @@ This pipeline can be adapted for:
 
 ---
 
-**Project Repository**: https://github.com/adityasinghops/DevOpsTerm9 
+**Project Repository**: https://github.com/adityasingh-ops/task-management-devops
+
+**DockerHub Image**: https://hub.docker.com/r/sudoadi/task-management-api
 
 ---
 
