@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: task-management-api
-        image: sudoadi/task-management-api:test
+        image: sudoadi/task-management-api:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

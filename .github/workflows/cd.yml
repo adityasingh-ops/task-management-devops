@@ -73,9 +73,9 @@ jobs:
       - name: Configure Kubernetes Context
         run: |
           echo "🔧 Configuring Kubernetes context..."
-          # mkdir -p $HOME/.kube
-          # echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > $HOME/.kube/config
-          echo "⚠️  Note: Configure KUBE_CONFIG secret for actual deployment"
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > $HOME/.kube/config
+          # echo "⚠️  Note: Configure KUBE_CONFIG secret for actual deployment"
           
       - name: Create Namespace (if not exists)
         run: |
@@ -91,20 +91,20 @@ jobs:
       - name: Apply Kubernetes Manifests
         run: |
           echo "🚀 Deploying to Kubernetes..."
-          # kubectl apply -f k8s/ -n ${{ env.KUBE_NAMESPACE }}
-          echo "✅ Deployment manifests applied (dry-run mode)"
+          kubectl apply -f k8s/ -n ${{ env.KUBE_NAMESPACE }}
+          # echo "✅ Deployment manifests applied (dry-run mode)"
           
       - name: Wait for Deployment Rollout
         run: |
           echo "⏳ Waiting for deployment to complete..."
-          # kubectl rollout status deployment/${{ env.APP_NAME }} -n ${{ env.KUBE_NAMESPACE }} --timeout=5m
-          echo "✅ Deployment rollout completed"
+          kubectl rollout status deployment/${{ env.APP_NAME }} -n ${{ env.KUBE_NAMESPACE }} --timeout=5m
+          # echo "✅ Deployment rollout completed"
           
       - name: Verify Deployment
         run: |
           echo "🔍 Verifying deployment..."
-          # kubectl get pods -n ${{ env.KUBE_NAMESPACE }} -l app=${{ env.APP_NAME }}
-          # kubectl get service -n ${{ env.KUBE_NAMESPACE }} ${{ env.APP_NAME }}
+          kubectl get pods -n ${{ env.KUBE_NAMESPACE }} -l app=${{ env.APP_NAME }}
+          kubectl get service -n ${{ env.KUBE_NAMESPACE }} ${{ env.APP_NAME }}
           echo "✅ Deployment verified"
 
   # Job 3: Post-Deployment Health Check
@@ -122,10 +122,10 @@ jobs:
       - name: Get Service Endpoint
         run: |
           echo "🌐 Getting service endpoint..."
-          # SERVICE_IP=$(kubectl get service ${{ env.APP_NAME }} -n ${{ env.KUBE_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-          # echo "Service IP: $SERVICE_IP"
-          # echo "SERVICE_ENDPOINT=http://$SERVICE_IP:3000" >> $GITHUB_ENV
-          echo "SERVICE_ENDPOINT=http://localhost:3000" >> $GITHUB_ENV
+          SERVICE_IP=$(kubectl get service ${{ env.APP_NAME }} -n ${{ env.KUBE_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+          echo "Service IP: $SERVICE_IP"
+          echo "SERVICE_ENDPOINT=http://$SERVICE_IP:3000" >> $GITHUB_ENV
+          # echo "SERVICE_ENDPOINT=http://localhost:3000" >> $GITHUB_ENV
           
       - name: Health Check
         run: |
